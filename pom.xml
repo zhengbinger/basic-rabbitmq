@@ -12,6 +12,7 @@
         <module>work-queue</module>
         <module>routing-model</module>
         <module>pub-sub</module>
+        <module>topic-model</module>
     </modules>
     <packaging>pom</packaging>
 
