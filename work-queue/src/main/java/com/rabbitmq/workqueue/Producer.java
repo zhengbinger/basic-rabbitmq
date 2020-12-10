@@ -25,9 +25,9 @@ public class Producer {
         factory.setHost("127.0.0.1");
         factory.setPort(5672);
         factory.setUsername("guest");
-
         factory.setPassword("guest");
         factory.setHandshakeTimeout(9999999);
+
         // 创建连接实例
         try (Connection connection = factory.newConnection();
 
@@ -36,9 +36,12 @@ public class Producer {
             // 声明队列
             channel.queueDeclare(QUEUE_HELLO, false, false, false, null);
 
-            String message = "hello world!!!";
-            channel.basicPublish("", QUEUE_HELLO, null, message.getBytes(UTF_8));
-            System.out.println("[X] 发送消息：" + message);
+            for (int i = 0; i < 5; i++) {
+                String message = "hello world!!!";
+                channel.basicPublish("", QUEUE_HELLO, null, message.getBytes(UTF_8));
+                System.out.println("[X] 发送消息：" + message);
+            }
+
         }
 
     }
