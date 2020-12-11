@@ -59,7 +59,7 @@ public class RabbitConfiguration {
     }
 
     @Bean
-    public Binding bindQueueEmail(@Qualifier(QUEUE_SMS) Queue queue, @Qualifier(EXCHANGE_TOPIC_INFO) Exchange exchange) {
+    public Binding bindQueueEmail(@Qualifier(QUEUE_EMAIL) Queue queue, @Qualifier(EXCHANGE_TOPIC_INFO) Exchange exchange) {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)
